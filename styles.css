@@ -1,0 +1,558 @@
+:root {
+    --bg-deep: #030711;
+    --bg-panel: #07111f;
+    --bg-panel-soft: rgba(15, 23, 42, 0.72);
+
+    --solar-gold: #ffca6a;
+    --solar-orange: #fb8500;
+    --solar-hot: #ff6b00;
+    --cyber-blue: #38d5ff;
+
+    --text-main: #f8fafc;
+    --text-soft: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --border-soft: rgba(255, 255, 255, 0.16);
+    --border-gold: rgba(255, 202, 106, 0.65);
+
+    --danger: #fb7185;
+    --success: #4ade80;
+
+    --radius-xl: 32px;
+    --radius-lg: 22px;
+    --radius-md: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+    color: var(--text-main);
+    background:
+        radial-gradient(circle at top right, rgba(251, 133, 0, 0.28), transparent 34rem),
+        radial-gradient(circle at bottom left, rgba(56, 213, 255, 0.12), transparent 30rem),
+        linear-gradient(135deg, #020617 0%, #050816 42%, #1d1208 100%);
+    display: grid;
+    place-items: center;
+    padding: 32px;
+}
+
+/* Main container */
+
+.page-shell {
+    width: min(1500px, 100%);
+    min-height: 820px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(420px, 0.75fr);
+    gap: 42px;
+    padding: 42px;
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-xl);
+    background:
+        linear-gradient(135deg, rgba(255, 202, 106, 0.09), transparent 22%),
+        rgba(2, 6, 23, 0.78);
+    box-shadow:
+        0 0 0 8px rgba(255, 202, 106, 0.05),
+        0 30px 90px rgba(0, 0, 0, 0.65),
+        inset 0 0 70px rgba(255, 202, 106, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-shell::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.75);
+    border-radius: calc(var(--radius-xl) - 8px);
+    pointer-events: none;
+}
+
+/* Left visual panel */
+
+.brand-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 48% 43%, rgba(255, 184, 3, 0.22), transparent 19rem),
+        radial-gradient(circle at 20% 80%, rgba(56, 213, 255, 0.09), transparent 22rem),
+        linear-gradient(180deg, #06111f 0%, #020617 100%);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    padding: 40px;
+    min-height: 720px;
+    isolation: isolate;
+}
+
+/* Grid overlay */
+.brand-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.09) 1px, transparent 1px);
+    background-size: 140px 140px;
+    mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
+    opacity: 0.9;
+    z-index: -3;
+}
+
+/* Stars / particles */
+.brand-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 18%, #ffd166 0 1px, transparent 2px),
+        radial-gradient(circle at 21% 37%, #38d5ff 0 1px, transparent 2px),
+        radial-gradient(circle at 28% 24%, #ffca6a 0 2px, transparent 3px),
+        radial-gradient(circle at 68% 20%, #ffca6a 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 48%, #38d5ff 0 1px, transparent 2px),
+        radial-gradient(circle at 75% 74%, #ffd166 0 2px, transparent 3px),
+        radial-gradient(circle at 42% 78%, #38d5ff 0 1px, transparent 2px);
+    opacity: 0.9;
+    z-index: -2;
+}
+
+.status-badge {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 14px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--cyber-blue);
+    font-family: "Courier New", monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    box-shadow: 0 0 24px rgba(56, 213, 255, 0.12);
+}
+
+.status-badge span:first-child {
+    color: var(--solar-gold);
+}
+
+.hud-frame {
+    position: absolute;
+    inset: 80px 50px 210px;
+    border: 1px solid rgba(148, 163, 184, 0.26);
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+}
+
+.hud-frame::before,
+.hud-frame::after {
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 120px;
+    border-top: 3px solid rgba(56, 213, 255, 0.75);
+    border-bottom: 3px solid rgba(255, 202, 106, 0.75);
+    opacity: 0.8;
+}
+
+.hud-frame::before {
+    left: -20px;
+    top: 38%;
+    border-left: 3px solid rgba(255, 202, 106, 0.45);
+}
+
+.hud-frame::after {
+    right: -20px;
+    top: 38%;
+    border-right: 3px solid rgba(56, 213, 255, 0.45);
+}
+
+.solar-orb-wrapper {
+    position: relative;
+    width: min(440px, 70%);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.solar-orb-wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -26px;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle, rgba(255, 255, 255, 0.75), transparent 14%),
+        radial-gradient(circle, rgba(255, 202, 106, 0.75), transparent 48%),
+        radial-gradient(circle, rgba(251, 133, 0, 0.36), transparent 68%);
+    filter: blur(22px);
+    opacity: 0.85;
+    z-index: -1;
+}
+
+.solar-orb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: saturate(1.2) contrast(1.08) brightness(1.05);
+    box-shadow:
+        0 0 40px rgba(255, 202, 106, 0.9),
+        0 0 110px rgba(251, 133, 0, 0.72),
+        0 0 180px rgba(251, 133, 0, 0.35);
+}
+
+.portal-tag {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    width: min(640px, 88%);
+    padding: 22px 28px;
+    border: 1px solid rgba(148, 163, 184, 0.34);
+    border-radius: 12px;
+    background: rgba(2, 6, 23, 0.42);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    font-size: clamp(2.2rem, 5vw, 4.6rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow:
+        0 0 16px rgba(255, 255, 255, 0.65),
+        0 0 34px rgba(255, 202, 106, 0.55);
+}
+
+.brand-copy {
+    position: absolute;
+    left: 80px;
+    right: 60px;
+    bottom: 60px;
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--solar-gold);
+    font-size: clamp(2.6rem, 6vw, 5.5rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.brand-copy h1 {
+    margin: 4px 0 12px;
+    font-size: clamp(2.2rem, 5vw, 4.8rem);
+    line-height: 0.95;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.brand-copy p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+/* Right form side */
+
+.form-panel {
+    display: grid;
+    place-items: center;
+    min-width: 0;
+}
+
+.signup-card {
+    width: min(100%, 560px);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-soft);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04)),
+        rgba(15, 23, 42, 0.72);
+    box-shadow:
+        0 22px 70px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(18px);
+}
+
+.form-kicker {
+    margin: 0 0 8px;
+    color: var(--solar-gold);
+    font-family: "Courier New", monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.form-header h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height: 1.05;
+}
+
+.form-header p {
+    margin: 12px 0 28px;
+    color: var(--text-soft);
+    max-width: 42ch;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+label,
+legend {
+    color: var(--text-main);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 46px;
+    border: 1px solid rgba(203, 213, 225, 0.28);
+    border-radius: var(--radius-md);
+    padding: 0 14px;
+    color: var(--text-main);
+    background: rgba(15, 23, 42, 0.58);
+    outline: none;
+    font: inherit;
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease,
+        transform 180ms ease;
+}
+
+select {
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: rgba(203, 213, 225, 0.55);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--solar-gold);
+    background: rgba(15, 23, 42, 0.82);
+    box-shadow:
+        0 0 0 3px rgba(255, 202, 106, 0.15),
+        0 0 26px rgba(251, 133, 0, 0.18);
+}
+
+/* Shows invalid fields only after the user has interacted */
+input.touched:invalid,
+select.touched:invalid {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(251, 113, 133, 0.14);
+}
+
+input.touched:valid,
+select.touched:valid {
+    border-color: rgba(74, 222, 128, 0.6);
+}
+
+.radio-group {
+    margin: 24px 0 18px;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+}
+
+.radio-group legend {
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+.radio-option,
+.checkbox-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--text-soft);
+    cursor: pointer;
+}
+
+.radio-option input,
+.checkbox-option input {
+    width: 18px;
+    height: 18px;
+    min-height: auto;
+    accent-color: var(--solar-gold);
+    cursor: pointer;
+}
+
+.checkbox-option {
+    margin-bottom: 24px;
+}
+
+.submit-button {
+    width: 100%;
+    min-height: 54px;
+    border: 0;
+    border-radius: var(--radius-md);
+    color: #1c1205;
+    background:
+        linear-gradient(90deg, #ffb703, #ffe0a3, #fb8500);
+    font: inherit;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow:
+        0 0 24px rgba(255, 202, 106, 0.62),
+        0 0 56px rgba(251, 133, 0, 0.32);
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        filter 180ms ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow:
+        0 0 30px rgba(255, 202, 106, 0.78),
+        0 0 72px rgba(251, 133, 0, 0.42);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+.form-status {
+    min-height: 22px;
+    margin: 16px 0 0;
+    color: var(--text-muted);
+    font-family: "Courier New", monospace;
+    font-size: 0.85rem;
+}
+
+.form-status.success {
+    color: var(--success);
+}
+
+.form-status.error {
+    color: var(--danger);
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+    body {
+        padding: 20px;
+    }
+
+    .page-shell {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+
+    .brand-panel {
+        min-height: 560px;
+    }
+
+    .hud-frame {
+        inset: 70px 34px 180px;
+    }
+
+    .brand-copy {
+        left: 44px;
+        bottom: 42px;
+    }
+
+    .signup-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+    body {
+        padding: 12px;
+    }
+
+    .page-shell {
+        padding: 14px;
+        border-radius: 22px;
+    }
+
+    .brand-panel {
+        min-height: 430px;
+        padding: 24px;
+    }
+
+    .status-badge {
+        font-size: 0.62rem;
+        padding: 7px 10px;
+    }
+
+    .hud-frame {
+        inset: 64px 20px 140px;
+    }
+
+    .portal-tag {
+        font-size: 1.45rem;
+        padding: 14px;
+    }
+
+    .brand-copy {
+        left: 26px;
+        right: 26px;
+        bottom: 28px;
+    }
+
+    .brand-copy p {
+        font-size: 0.95rem;
+    }
+
+    .signup-card {
+        padding: 26px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
