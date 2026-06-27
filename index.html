@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solaris Access Portal</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <main class="page-shell">
+        <section class="brand-panel" aria-label="Solaris Access Portal visual identity">
+            <div class="status-badge">
+                <span>Access Node 01</span>
+                <span>//</span>
+                <span>System Online</span>
+            </div>
+
+            <div class="hud-frame">
+                <div class="solar-orb-wrapper">
+                    <img src="./assets/solar-sun.webp" alt="" class="solar-orb" aria-hidden="true" />
+                </div>
+
+                <div class="portal-tag">Access Portal</div>
+            </div>
+
+            <div class="brand-copy">
+                <p class="eyebrow">Solaris</p>
+                <h1>Access Portal</h1>
+                <p>Secure access for solar system operators.</p>
+            </div>
+        </section>
+
+        <section class="form-panel" aria-label="Solaris ID sign up form">
+            <form class="signup-card" id="signup-form">
+                <div class="form-header">
+                    <p class="form-kicker">Operator Registration</p>
+                    <h2>Create Your Solaris ID</h2>
+                    <p>
+                        Access the Solaris Terminal Network and configure your operator profile.
+                    </p>
+                </div>
+
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="first-name">Operator First Name</label>
+                        <input type="text" id="first-name" name="firstName" placeholder="Clebson"
+                            autocomplete="given-name" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="last-name">Operator Last Name</label>
+                        <input type="text" id="last-name" name="lastName" placeholder="Costa" autocomplete="family-name"
+                            required />
+                    </div>
+
+                    <div class="field full">
+                        <label for="email">Transmission Email</label>
+                        <input type="email" id="email" name="email" placeholder="operator@solaris.network"
+                            autocomplete="email" required />
+                    </div>
+
+                    <div class="field full">
+                        <label for="phone">Emergency Contact Signal</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+55 71 99999-9999" autocomplete="tel"
+                            inputmode="tel" pattern="^\+?[0-9\s().-]{7,20}$"
+                            title="Use a valid phone number. You may include +, spaces, parentheses, dots or dashes."
+                            required />
+                    </div>
+
+                    <div class="field full">
+                        <label for="operator-class">Operator Class</label>
+                        <select id="operator-class" name="operatorClass" required>
+                            <option value="" selected disabled>Select your class</option>
+                            <option value="explorer">Explorer</option>
+                            <option value="engineer">Engineer</option>
+                            <option value="analyst">Analyst</option>
+                            <option value="commander">Commander</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="access-key">Access Key</label>
+                        <input type="password" id="access-key" name="accessKey" placeholder="Minimum 8 characters"
+                            autocomplete="new-password" minlength="8" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="confirm-access-key">Confirm Access Key</label>
+                        <input type="password" id="confirm-access-key" name="confirmAccessKey"
+                            placeholder="Repeat access key" autocomplete="new-password" minlength="8" required />
+                    </div>
+                </div>
+
+                <fieldset class="radio-group">
+                    <legend>Preferred Interface</legend>
+
+                    <label class="radio-option">
+                        <input type="radio" name="interfaceMode" value="light-core" checked />
+                        <span>Light Core</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="interfaceMode" value="dark-terminal" />
+                        <span>Dark Terminal</span>
+                    </label>
+
+                    <label class="radio-option">
+                        <input type="radio" name="interfaceMode" value="solar-neon" />
+                        <span>Solar Neon</span>
+                    </label>
+                </fieldset>
+
+                <label class="checkbox-option">
+                    <input type="checkbox" name="protocolsAccepted" required />
+                    <span>I accept Solaris Network Protocols</span>
+                </label>
+
+                <button type="submit" class="submit-button">
+                    Activate Access
+                </button>
+
+                <p class="form-status" id="form-status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
