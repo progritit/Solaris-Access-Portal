@@ -559,3 +559,503 @@ select.touched:valid {
         align-items: flex-start;
     }
 }
+
+.site-footer {
+    grid-column: 1 / -1;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.footer-pill {
+    max-width: min(760px, 100%);
+    padding: 12px 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+
+    color: var(--text-soft);
+    background:
+        linear-gradient(135deg, rgba(255, 202, 106, 0.1), rgba(56, 213, 255, 0.05)),
+        rgba(15, 23, 42, 0.72);
+
+    border: 1px solid var(--border-gold);
+    border-radius: 999px;
+
+    box-shadow:
+        0 0 22px rgba(255, 202, 106, 0.24),
+        0 10px 32px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+}
+
+.footer-main,
+.footer-socials {
+    display: flex;
+    align-items: center;
+}
+
+.footer-main {
+    gap: 14px;
+}
+
+.footer-socials {
+    gap: 8px;
+}
+
+.footer-pill p {
+    margin: 0;
+}
+
+.footer-main p {
+    color: var(--text-main);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.photo-credit {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+.photo-credit a {
+    color: var(--solar-gold);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.photo-credit a:hover {
+    color: var(--cyber-blue);
+    text-shadow: 0 0 12px rgba(56, 213, 255, 0.6);
+}
+
+.social-link {
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    color: #1c1205;
+    background: linear-gradient(135deg, var(--solar-gold), var(--solar-orange));
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 14px rgba(255, 202, 106, 0.35);
+
+    transition:
+        transform 0.16s ease,
+        box-shadow 0.16s ease,
+        filter 0.16s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow:
+        0 0 18px rgba(255, 202, 106, 0.7),
+        0 0 34px rgba(251, 133, 0, 0.35);
+}
+
+.social-icon {
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+}
+
+#currentYear {
+    color: var(--solar-gold);
+}
+
+@media (max-width: 650px) {
+    .footer-pill {
+        border-radius: 22px;
+        padding: 14px 16px;
+    }
+
+    .footer-main {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .photo-credit {
+        text-align: center;
+        line-height: 1.5;
+    }
+}
+
+/*SOLARIS PROTOCOLS PAGE'S STYLES*/
+
+/* Inline links */
+
+.inline-link {
+    color: var(--solar-gold);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.inline-link:hover {
+    color: var(--cyber-blue);
+    text-shadow: 0 0 12px rgba(56, 213, 255, 0.6);
+}
+
+/* Solaris Network Protocols page */
+
+.protocol-body {
+    display: block;
+    min-height: 100vh;
+    padding: 32px;
+
+    background:
+        radial-gradient(circle at top left, rgba(255, 202, 106, 0.16), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(56, 213, 255, 0.12), transparent 32rem),
+        linear-gradient(135deg, #020617 0%, #050816 48%, #160d05 100%);
+}
+
+.protocol-shell {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+}
+
+.protocol-hero {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 24px;
+    padding: 42px;
+
+    border: 1px solid var(--border-gold);
+    border-radius: var(--radius-xl);
+
+    background:
+        linear-gradient(135deg, rgba(255, 202, 106, 0.12), transparent 32%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+        rgba(15, 23, 42, 0.78);
+
+    box-shadow:
+        0 0 0 8px rgba(255, 202, 106, 0.045),
+        0 24px 70px rgba(0, 0, 0, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(16px);
+}
+
+.protocol-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+
+    background-size: 96px 96px;
+    mask-image: radial-gradient(circle at top right, black 0%, transparent 75%);
+    pointer-events: none;
+}
+
+.back-link {
+    position: relative;
+    z-index: 1;
+
+    display: inline-flex;
+    margin-bottom: 28px;
+
+    color: var(--text-soft);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        color 160ms ease,
+        text-shadow 160ms ease;
+}
+
+.back-link:hover {
+    color: var(--solar-gold);
+    text-shadow: 0 0 14px rgba(255, 202, 106, 0.6);
+}
+
+.protocol-badge {
+    position: relative;
+    z-index: 1;
+
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 24px;
+    padding: 8px 14px;
+
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 8px;
+
+    background: rgba(2, 6, 23, 0.52);
+    color: var(--cyber-blue);
+
+    font-family: "Courier New", monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    box-shadow: 0 0 24px rgba(56, 213, 255, 0.12);
+}
+
+.protocol-badge span:first-child {
+    color: var(--solar-gold);
+}
+
+.protocol-kicker {
+    position: relative;
+    z-index: 1;
+
+    margin: 0 0 10px;
+
+    color: var(--solar-gold);
+    font-family: "Courier New", monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.protocol-hero h1 {
+    position: relative;
+    z-index: 1;
+
+    max-width: 760px;
+    margin: 0;
+
+    font-size: clamp(2.6rem, 7vw, 5.8rem);
+    line-height: 0.92;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+
+    text-shadow:
+        0 0 20px rgba(255, 202, 106, 0.32),
+        0 0 44px rgba(251, 133, 0, 0.18);
+}
+
+.protocol-intro {
+    position: relative;
+    z-index: 1;
+
+    max-width: 720px;
+    margin: 22px 0 0;
+
+    color: var(--text-soft);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.protocol-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+
+    margin-bottom: 24px;
+}
+
+.protocol-meta-card {
+    padding: 20px;
+
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+        rgba(15, 23, 42, 0.64);
+
+    box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.26),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    backdrop-filter: blur(12px);
+}
+
+.protocol-meta-card span {
+    display: block;
+    margin-bottom: 8px;
+
+    color: var(--text-muted);
+    font-family: "Courier New", monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.protocol-meta-card strong {
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+.protocol-card {
+    padding: 42px;
+
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-xl);
+
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.035)),
+        rgba(15, 23, 42, 0.74);
+
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.11);
+
+    backdrop-filter: blur(18px);
+}
+
+.protocol-card p,
+.protocol-card li {
+    color: var(--text-soft);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.protocol-card p {
+    margin: 0 0 16px;
+}
+
+.protocol-divider {
+    height: 1px;
+    margin: 30px 0;
+
+    background:
+        linear-gradient(90deg,
+            transparent,
+            rgba(255, 202, 106, 0.75),
+            rgba(56, 213, 255, 0.35),
+            transparent);
+}
+
+.protocol-section {
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.protocol-section:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.protocol-section h2 {
+    margin: 0 0 16px;
+
+    color: var(--solar-gold);
+    font-size: clamp(1.35rem, 3vw, 2rem);
+    line-height: 1.2;
+}
+
+.protocol-section ul {
+    margin: 18px 0 20px;
+    padding-left: 24px;
+}
+
+.protocol-section li::marker {
+    color: var(--solar-gold);
+}
+
+.interface-list {
+    display: grid;
+    gap: 14px;
+
+    margin: 20px 0;
+}
+
+.interface-list div {
+    padding: 16px 18px;
+
+    border: 1px solid rgba(255, 202, 106, 0.22);
+    border-radius: var(--radius-md);
+
+    background:
+        linear-gradient(135deg, rgba(255, 202, 106, 0.08), rgba(56, 213, 255, 0.04)),
+        rgba(2, 6, 23, 0.34);
+}
+
+.interface-list strong {
+    display: block;
+    margin-bottom: 6px;
+
+    color: var(--text-main);
+}
+
+.interface-list span {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.system-message {
+    margin-top: 26px !important;
+    padding: 18px 20px;
+
+    color: var(--solar-gold) !important;
+    background: rgba(2, 6, 23, 0.46);
+
+    border: 1px solid rgba(255, 202, 106, 0.35);
+    border-radius: var(--radius-md);
+
+    font-family: "Courier New", monospace;
+    font-weight: 700;
+
+    box-shadow:
+        0 0 20px rgba(255, 202, 106, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 800px) {
+    .protocol-body {
+        padding: 18px;
+    }
+
+    .protocol-hero,
+    .protocol-card {
+        padding: 28px;
+    }
+
+    .protocol-meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .protocol-badge {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 520px) {
+    .protocol-body {
+        padding: 12px;
+    }
+
+    .protocol-hero,
+    .protocol-card {
+        border-radius: 22px;
+        padding: 22px;
+    }
+
+    .protocol-hero h1 {
+        font-size: 2.35rem;
+    }
+
+    .protocol-card p,
+    .protocol-card li {
+        font-size: 0.95rem;
+    }
+}
+
