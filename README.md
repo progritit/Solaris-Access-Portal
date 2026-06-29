@@ -12,13 +12,9 @@ Desktop preview:
 
 ![Solaris Access Portal preview](./assets/screenshots/desktop-preview.png)
 
-> Add your own screenshot to `assets/screenshots/desktop-preview.png`, or update the path above.
-
 ## Live Demo
 
 [View live project](https://progritit.github.io/Solaris-Access-Portal/)
-
-> Replace `#` with your GitHub Pages link once deployed.
 
 ## Project Concept
 
