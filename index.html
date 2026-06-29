@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solaris Access Portal</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="preload" href="./assets/solar-sun.webp" as="image" type="image/webp" fetchpriority="high" />
     <script src="./script.js" defer></script>
 </head>
 
@@ -20,9 +21,9 @@
 
             <div class="hud-frame">
                 <div class="solar-orb-wrapper">
-                    <img src="./assets/solar-sun.webp" alt="" class="solar-orb" aria-hidden="true" />
+                    <img src="./assets/solar-sun.webp" alt="" class="solar-orb" aria-hidden="true" loading="eager" decoding="async"
+                        fetchpriority="high" />
                 </div>
-
                 <div class="portal-tag">Access Portal</div>
             </div>
 
@@ -34,13 +35,11 @@
         </section>
 
         <section class="form-panel" aria-label="Solaris ID sign up form">
-            <form class="signup-card" id="signup-form">
+            <form class="signup-card" id="signup-form" novalidate>
                 <div class="form-header">
                     <p class="form-kicker">Operator Registration</p>
                     <h2>Create Your Solaris ID</h2>
-                    <p>
-                        Access the Solaris Terminal Network and configure your operator profile.
-                    </p>
+                    <p>Access the Solaris Terminal Network and configure your operator profile.</p>
                 </div>
 
                 <div class="form-grid">
@@ -52,8 +51,8 @@
 
                     <div class="field">
                         <label for="last-name">Operator Last Name</label>
-                        <input type="text" id="last-name" name="lastName" placeholder="Parker" autocomplete="family-name"
-                            required />
+                        <input type="text" id="last-name" name="lastName" placeholder="Parker"
+                            autocomplete="family-name" required />
                     </div>
 
                     <div class="field full">
@@ -66,8 +65,7 @@
                         <label for="phone">Emergency Contact Signal</label>
                         <input type="tel" id="phone" name="phone" placeholder="+33 06 75 64 24 91" autocomplete="tel"
                             inputmode="tel" pattern="^\+?[0-9\s().-]{7,20}$"
-                            title="Use a valid phone number. You may include +, spaces, parentheses, dots or dashes."
-                            required />
+                            title="Use a valid phone number format (+33...)" required />
                     </div>
 
                     <div class="field full">
@@ -96,17 +94,14 @@
 
                 <fieldset class="radio-group">
                     <legend>Preferred Interface</legend>
-
                     <label class="radio-option">
                         <input type="radio" name="interfaceMode" value="light-core" checked />
                         <span>Light Core</span>
                     </label>
-
                     <label class="radio-option">
                         <input type="radio" name="interfaceMode" value="dark-terminal" />
                         <span>Dark Terminal</span>
                     </label>
-
                     <label class="radio-option">
                         <input type="radio" name="interfaceMode" value="solar-neon" />
                         <span>Solar Neon</span>
@@ -115,52 +110,42 @@
 
                 <label class="checkbox-option">
                     <input type="checkbox" name="protocolsAccepted" required />
-                    <span>
-                        I have read and accept the
-                        <a href="./protocols.html" class="inline-link">Solaris Network Protocols</a>
-                    </span>
+                    <span>I have read and accept the <a href="./protocols.html" class="inline-link"
+                            target="_blank">Solaris Network Protocols</a></span>
                 </label>
 
-                <button type="submit" class="submit-button">
-                    Activate Access
-                </button>
-
+                <button type="submit" class="submit-button">Activate Access</button>
                 <p class="form-status" id="form-status" aria-live="polite"></p>
             </form>
         </section>
     </main>
+
     <footer class="site-footer">
         <div class="footer-pill">
             <div class="footer-main">
-                <p>
-                    © Clebson Web Dev <span id="currentYear"></span>
-                </p>
-    
+                <p>© Clebson Web Dev <span id="currentYear">2026</span></p>
                 <div class="footer-socials" aria-label="Social links">
                     <a href="https://github.com/progritit" target="_blank" rel="noopener noreferrer" class="social-link"
                         aria-label="Visit Clebson's GitHub profile">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path
                                 d="M12 0.3C5.4 0.3 0 5.7 0 12.3c0 5.3 3.4 9.8 8.2 11.4 0.6 0.1 0.8-0.3 0.8-0.6v-2.1c-3.3 0.7-4-1.4-4-1.4-0.5-1.3-1.3-1.7-1.3-1.7-1.1-0.7 0.1-0.7 0.1-0.7 1.2 0.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 0.1-0.8 0.4-1.3 0.8-1.6-2.7-0.3-5.5-1.3-5.5-5.9 0-1.3 0.5-2.4 1.2-3.2-0.1-0.3-0.5-1.6 0.1-3.2 0 0 1-0.3 3.3 1.2 1-0.3 2-0.4 3-0.4s2.1 0.1 3 0.4c2.3-1.5 3.3-1.2 3.3-1.2 0.6 1.6 0.2 2.9 0.1 3.2 0.8 0.9 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9 0.4 0.4 0.8 1.1 0.8 2.2v3.2c0 0.3 0.2 0.7 0.8 0.6 4.8-1.6 8.2-6.1 8.2-11.4C24 5.7 18.6 0.3 12 0.3z" />
                         </svg>
                     </a>
-    
                     <a href="https://www.linkedin.com/in/clebsoncosta" target="_blank" rel="noopener noreferrer"
                         class="social-link" aria-label="Visit Clebson's LinkedIn profile">
-                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                            aria-hidden="true">
                             <path
                                 d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
                         </svg>
                     </a>
                 </div>
             </div>
-    
-            <p class="photo-credit">
-                Photo by
-                <a href="https://unsplash.com/fr/@nasa" target="_blank" rel="noopener noreferrer">NASA</a>
-                on
-                <a href="https://unsplash.com/fr" target="_blank" rel="noopener noreferrer">Unsplash</a>
-            </p>
+            <p class="photo-credit">Photo by <a href="https://unsplash.com/fr/@nasa" target="_blank"
+                    rel="noopener noreferrer">NASA</a> on <a href="https://unsplash.com/fr" target="_blank"
+                    rel="noopener noreferrer">Unsplash</a></p>
         </div>
     </footer>
 </body>
