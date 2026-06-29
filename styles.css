@@ -176,6 +176,7 @@ body {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     box-shadow: 0 0 24px rgba(56, 213, 255, 0.12);
+    z-index: 10;
 }
 
 .status-badge span:first-child {
@@ -189,6 +190,7 @@ body {
     border-radius: 14px;
     display: grid;
     place-items: center;
+    z-index: 1;
 }
 
 .hud-frame::before,
@@ -278,6 +280,7 @@ body {
     text-shadow:
         0 0 16px rgba(255, 255, 255, 0.65),
         0 0 34px rgba(255, 202, 106, 0.55);
+    z-index: 3;
 }
 
 .brand-copy {
@@ -285,7 +288,7 @@ body {
     left: clamp(32px, 4vw, 80px);
     right: clamp(32px, 4vw, 60px);
     bottom: clamp(36px, 5vh, 60px);
-    z-index: 2;
+    z-index: 4;
 
     padding-top: 0;
 }
@@ -936,6 +939,28 @@ select.touched:valid {
         padding: 12px;
     }
 
+    .status-badge {
+        top: 18px;
+        z-index: 10;
+        font-size: 0.58rem;
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    .portal-tag {
+        width: min(560px, 88%);
+        font-size: clamp(1.35rem, 7vw, 2.1rem);
+        white-space: nowrap;
+    }
+
+    .hud-frame {
+        inset: 86px 20px 150px;
+    }
+
+    .solar-orb-wrapper {
+        width: min(340px, 78%);
+    }
+
     .page-shell {
         width: 100%;
         padding: 14px;
@@ -943,7 +968,7 @@ select.touched:valid {
     }
 
     .brand-panel {
-        min-height: 430px;
+        min-height: 500px;
         padding: 24px;
     }
 
